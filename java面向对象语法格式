@@ -1,0 +1,76 @@
+1.类的定义
+//修饰符 class 类名{成员变量+成员方法+构造方法}
+public class Student{
+//成员变量（属性）
+    String name;
+    int age;
+    //构造方法：名字和类名相同
+    public Student(){
+     //无参构造
+    }
+    //有参构造
+    public Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+    //成员方法（行为）
+    public void study(){
+        System.out.println(this.name+"正在学习");
+    }
+}
+
+2.对象的创建
+//类名 对象名 =new 类名（参数列表）；
+Student student1 = new Student("张三",18);
+//调用属性
+student1.name="李四";
+//调用方法
+student1.study();
+
+3.封装
+public class Student{
+//私有成员，外部不能直接访问
+private String name；
+
+//get：取值
+public String getName(){
+    return name;
+}
+//set：赋值
+public void setName(String name){
+    this.name=name;
+}
+}
+
+4.继承
+//子类 extends 父类   //super代表父类对象
+public class son extends father{
+    //super（）调用父类构造，必须写在第一行
+    public son（String name，int age）{
+        super(name,age);
+    }
+}
+
+5.方法重写
+@Override
+public void study（）{
+    System.out.println(this.name+"正在学习");
+}
+
+6.抽象类
+//抽象类不能new对象
+public abstract class father{
+    //抽象方法：没有方法体，必须在抽象类里
+    public abstract void work();
+    //抽象类里可以有普通方法
+    public void sleep（）{}
+}
+
+7.接口interface
+//接口
+public interface run{
+//抽象方法：默认public abstract
+    void run();
+    //default默认方法（有方法体，子类可以不重写）
+    default void sleep（）{}
+}
